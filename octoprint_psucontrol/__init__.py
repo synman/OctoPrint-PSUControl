@@ -387,7 +387,7 @@ class PSUControl(octoprint.plugin.StartupPlugin,
 
                 # version check: github repository
                 type="github_release",
-                user="kantlivelong",
+                user="synman",
                 repo="OctoPrint-PSUControl",
                 current=self._plugin_version,
 
