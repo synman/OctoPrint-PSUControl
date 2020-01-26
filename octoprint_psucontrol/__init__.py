@@ -185,12 +185,14 @@ class PSUControl(octoprint.plugin.StartupPlugin,
         if self._printer.is_printing() or self._printer.is_paused():
             return
 
-        self._logger.info("Idle timeout reached after %s minute(s). Turning heaters off prior to shutting off PSU." % self.idleTimeout)
-        if self._wait_for_heaters():
-            self._logger.info("Heaters below temperature.")
-            self.turn_psu_off()
-        else:
-            self._logger.info("Aborted PSU shut down due to activity.")
+	self._logger.info("Idle timeout reached after %s minute(s)." % self.idleTimeout)
+	self.turn_psu_off()
+#        self._logger.info("Idle timeout reached after %s minute(s). Turning heaters off prior to shutting off PSU." % self.idleTimeout)
+#        if self._wait_for_heaters():
+#            self._logger.info("Heaters below temperature.")
+#            self.turn_psu_off()
+#        else:
+#            self._logger.info("Aborted PSU shut down due to activity.")
 
     def _wait_for_heaters(self):
         self._waitForHeaters = True
